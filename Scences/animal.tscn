@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dioyojk203ncv"]
+
+[ext_resource type="Script" path="res://GDScript/animal.gd" id="1_c4nqe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6eqd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gqns8"]
+radius = 6.08276
+
+[node name="Animal" type="CharacterBody2D"]
+script = ExtResource("1_c4nqe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m6eqd")
+frame_progress = 0.0653223
+
+[node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D"]
+shape = SubResource("CircleShape2D_gqns8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

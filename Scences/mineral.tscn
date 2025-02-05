@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://jjeft7nrrubd"]
+
+[ext_resource type="Script" path="res://GDScript/mineral.gd" id="1_uagpg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nn7vx"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"end",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"middle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"start",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ulr85"]
+size = Vector2(22, 15.7095)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ch5d4"]
+radius = 22.4425
+
+[node name="Mineral" type="AnimatedSprite2D"]
+y_sort_enabled = true
+scale = Vector2(2.5, 2.174)
+sprite_frames = SubResource("SpriteFrames_nn7vx")
+animation = &"end"
+script = ExtResource("1_uagpg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 1.87499)
+shape = SubResource("RectangleShape2D_ulr85")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ch5d4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -38.0
+offset_right = 20.0
+offset_bottom = -22.0
+theme_override_font_sizes/font_size = 11
+text = "[e] mine"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

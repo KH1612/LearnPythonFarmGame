@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://3qs5abs6f88l"]
+
+[ext_resource type="Texture2D" uid="uid://ddko47q0uvjg1" path="res://Art/LevelTiles/Speech.png" id="2_nv1md"]
+[ext_resource type="FontFile" uid="uid://0qx5j6w3e8p1" path="res://Art/SpeechBubble/NerkoOne-Regular.ttf" id="3_inlag"]
+
+[node name="SpeechBubble" type="MarginContainer"]
+offset_right = 81.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_nv1md")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_top = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_inlag")
+horizontal_alignment = 1
+vertical_alignment = 1

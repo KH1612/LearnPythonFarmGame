@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://cayr6rm7x0r26"]
+
+[ext_resource type="Texture2D" uid="uid://britjgljmlwsp" path="res://Art/LevelTiles/Tileset/spr_tileset_sunnysideworld_16px.png" id="1_d4ns7"]
+[ext_resource type="Script" path="res://GDScript/fruit_boxes.gd" id="1_mnu6t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cpg3q"]
+radius = 36.0139
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjd77"]
+size = Vector2(34, 11.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3bp7"]
+atlas = ExtResource("1_d4ns7")
+region = Rect2(784, 224, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tedt1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3bp7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvui0"]
+atlas = ExtResource("1_d4ns7")
+region = Rect2(768, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oy1a8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvui0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcx4u"]
+atlas = ExtResource("1_d4ns7")
+region = Rect2(768, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oy3ee"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcx4u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FruitBoxes" type="Area2D"]
+y_sort_enabled = true
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_mnu6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -5)
+shape = SubResource("CircleShape2D_cpg3q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(5, -3.75)
+shape = SubResource("RectangleShape2D_jjd77")
+
+[node name="AppleBox" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, -8)
+sprite_frames = SubResource("SpriteFrames_tedt1")
+
+[node name="Apples" type="AnimatedSprite2D" parent="AppleBox"]
+position = Vector2(7.62939e-06, -3)
+scale = Vector2(0.8125, 0.6875)
+sprite_frames = SubResource("SpriteFrames_oy1a8")
+
+[node name="OrangeBox" type="AnimatedSprite2D" parent="."]
+position = Vector2(14, -8)
+sprite_frames = SubResource("SpriteFrames_tedt1")
+
+[node name="Oranges" type="AnimatedSprite2D" parent="OrangeBox"]
+position = Vector2(1, -1)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_oy3ee")
+
+[node name="Label" type="Label" parent="."]
+y_sort_enabled = true
+offset_left = -32.6667
+offset_top = -46.6667
+offset_right = 50.3333
+offset_bottom = -23.6667
+theme_override_font_sizes/font_size = 15
+text = "[e] place"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

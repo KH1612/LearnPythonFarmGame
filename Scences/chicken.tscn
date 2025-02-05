@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://bv3j6u0k8pr42"]
+
+[ext_resource type="PackedScene" uid="uid://dioyojk203ncv" path="res://Scences/animal.tscn" id="1_85v3k"]
+[ext_resource type="Texture2D" uid="uid://dl43l6d3uysvf" path="res://Art/LevelTiles/Elements/Animals/spr_deco_chicken_01_strip4.png" id="1_cxcga"]
+[ext_resource type="Script" path="res://GDScript/chicken.gd" id="1_sa53n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4scaq"]
+atlas = ExtResource("1_cxcga")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqfo8"]
+atlas = ExtResource("1_cxcga")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uksak"]
+atlas = ExtResource("1_cxcga")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpt1c"]
+atlas = ExtResource("1_cxcga")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uyt7f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4scaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqfo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uksak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpt1c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Animal" instance=ExtResource("1_85v3k")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_uyt7f")
+frame_progress = 0.0
+script = ExtResource("1_sa53n")
+
+[connection signal="chicken" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_chicken"]

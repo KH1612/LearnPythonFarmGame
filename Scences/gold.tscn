@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1rc0lawj4bny"]
+
+[ext_resource type="PackedScene" uid="uid://jjeft7nrrubd" path="res://Scences/mineral.tscn" id="1_f07t4"]
+[ext_resource type="Texture2D" uid="uid://britjgljmlwsp" path="res://Art/LevelTiles/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_us4as"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu2cp"]
+atlas = ExtResource("2_us4as")
+region = Rect2(786, 434, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8jtp"]
+atlas = ExtResource("2_us4as")
+region = Rect2(850, 434, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7wk4"]
+atlas = ExtResource("2_us4as")
+region = Rect2(882, 434, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pihd0"]
+atlas = ExtResource("2_us4as")
+region = Rect2(818, 434, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v5kgk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu2cp")
+}],
+"loop": true,
+"name": &"begin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8jtp")
+}],
+"loop": true,
+"name": &"end",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7wk4")
+}],
+"loop": true,
+"name": &"furnace",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pihd0")
+}],
+"loop": true,
+"name": &"middle",
+"speed": 5.0
+}]
+
+[node name="Gold" instance=ExtResource("1_f07t4")]
+sprite_frames = SubResource("SpriteFrames_v5kgk")
+animation = &"begin"

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl7s5tlmjqehu"]
+
+[ext_resource type="Script" path="res://GDScript/levelTimer.gd" id="1_fj71y"]
+
+[node name="LevelTimer" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.0
+offset_right = 5.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.743216, 0.144803, 0.579845, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0"
+script = ExtResource("1_fj71y")
+
+[node name="Timer" type="Timer" parent="Label"]
+autostart = true
+
+[connection signal="timeout" from="Label/Timer" to="Label" method="_on_timer_timeout"]

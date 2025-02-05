@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://230ofef85l2w"]
+
+[ext_resource type="Texture2D" uid="uid://bvtl05s3rkawe" path="res://Art/LevelTiles/Solaria Demo Tiles.png" id="1_bgoal"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud8nf"]
+atlas = ExtResource("1_bgoal")
+region = Rect2(144, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt1rg"]
+atlas = ExtResource("1_bgoal")
+region = Rect2(144, 160, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6tvl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud8nf")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt1rg")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3gut"]
+size = Vector2(20, 13)
+
+[node name="Lamp" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(13, 18)
+scale = Vector2(2.625, 2.125)
+sprite_frames = SubResource("SpriteFrames_p6tvl")
+animation = &"off"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(14, 34.5)
+shape = SubResource("RectangleShape2D_o3gut")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

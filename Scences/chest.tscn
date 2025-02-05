@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://c71ayj7s23ptj"]
+
+[ext_resource type="Script" path="res://GDScript/chest.gd" id="1_6fb0e"]
+[ext_resource type="Texture2D" uid="uid://britjgljmlwsp" path="res://Art/LevelTiles/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_cpcux"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7eenv"]
+radius = 15.0333
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynqrh"]
+atlas = ExtResource("2_cpcux")
+region = Rect2(608, 480, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiwwx"]
+atlas = ExtResource("2_cpcux")
+region = Rect2(624, 480, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ljfk2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynqrh")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tiwwx")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8si7"]
+size = Vector2(23, 18)
+
+[node name="Chest" type="Area2D"]
+y_sort_enabled = true
+script = ExtResource("1_6fb0e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-2, 6)
+shape = SubResource("CircleShape2D_7eenv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -14.375)
+scale = Vector2(1.5, 1.181)
+sprite_frames = SubResource("SpriteFrames_ljfk2")
+animation = &"closed"
+frame_progress = 0.287884
+
+[node name="Label" type="Label" parent="."]
+z_index = 5
+offset_left = -38.0
+offset_top = -60.0
+offset_right = 41.0
+offset_bottom = -32.0
+theme_override_font_sizes/font_size = 20
+text = "[e] open"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1.5, -11)
+shape = SubResource("RectangleShape2D_x8si7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="ready" from="." to="." method="_on_ready"]

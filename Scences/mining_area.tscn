@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bp1bo48umn78j"]
+
+[ext_resource type="PackedScene" uid="uid://m0wo15gl3i6v" path="res://Scences/coal.tscn" id="1_exgmv"]
+[ext_resource type="Script" path="res://GDScript/mining_area.gd" id="1_hcwnf"]
+[ext_resource type="PackedScene" uid="uid://cxhstw4k00sa0" path="res://Scences/diamond.tscn" id="2_r5cvb"]
+[ext_resource type="PackedScene" uid="uid://d1rc0lawj4bny" path="res://Scences/gold.tscn" id="3_hkdgr"]
+[ext_resource type="PackedScene" uid="uid://c71ayj7s23ptj" path="res://Scences/chest.tscn" id="5_g8vsh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5v6f"]
+size = Vector2(474, 251)
+
+[node name="MiningArea" type="Area2D"]
+script = ExtResource("1_hcwnf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(238, 125)
+shape = SubResource("RectangleShape2D_a5v6f")
+
+[node name="Diamond1" parent="." instance=ExtResource("2_r5cvb")]
+position = Vector2(52, 54)
+
+[node name="Diamond2" parent="." instance=ExtResource("2_r5cvb")]
+position = Vector2(218, 206)
+
+[node name="Gold1" parent="." instance=ExtResource("3_hkdgr")]
+position = Vector2(91, 162)
+
+[node name="Gold2" parent="." instance=ExtResource("3_hkdgr")]
+position = Vector2(183, 48)
+
+[node name="Gold3" parent="." instance=ExtResource("3_hkdgr")]
+position = Vector2(329, 149)
+
+[node name="Coal1" parent="." instance=ExtResource("1_exgmv")]
+position = Vector2(413, 53)
+
+[node name="Chest" parent="." instance=ExtResource("5_g8vsh")]
+position = Vector2(348, 230)
+
+[connection signal="mining" from="Diamond1" to="." method="_on_diamond_1_mining"]
+[connection signal="mining" from="Diamond2" to="." method="_on_diamond_2_mining"]
+[connection signal="mining" from="Gold1" to="." method="_on_gold_1_mining"]
+[connection signal="mining" from="Gold2" to="." method="_on_gold_2_mining"]
+[connection signal="mining" from="Gold3" to="." method="_on_gold_3_mining"]
+[connection signal="mining" from="Coal1" to="." method="_on_coal_1_mining"]
+[connection signal="interacted" from="Chest" to="." method="_on_chest_interacted"]

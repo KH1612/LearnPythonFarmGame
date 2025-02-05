@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://dtv77jbrwnyl7"]
+
+[ext_resource type="Script" path="res://GDScript/chicken2.gd" id="1_nntip"]
+[ext_resource type="Texture2D" uid="uid://cxtayktnp5e43" path="res://Art/Extras/farmingTilesheetComplete.png" id="2_7x0kj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqpbm"]
+atlas = ExtResource("2_7x0kj")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmwhc"]
+atlas = ExtResource("2_7x0kj")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf13h"]
+atlas = ExtResource("2_7x0kj")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7swam"]
+atlas = ExtResource("2_7x0kj")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c0j1"]
+atlas = ExtResource("2_7x0kj")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11w75"]
+atlas = ExtResource("2_7x0kj")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wrblj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqpbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmwhc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf13h")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7swam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c0j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11w75")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_du82d"]
+radius = 5.0
+
+[node name="chicken" type="CharacterBody2D"]
+script = ExtResource("1_nntip")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.5, -1.5)
+scale = Vector2(1.1875, 1.1875)
+sprite_frames = SubResource("SpriteFrames_wrblj")
+animation = &"eating"
+frame = 2
+frame_progress = 0.877977
+
+[node name="changestatetimer" type="Timer" parent="."]
+autostart = true
+
+[node name="walkingtimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_du82d")
+
+[connection signal="timeout" from="changestatetimer" to="." method="_on_changestatetimer_timeout"]
+[connection signal="timeout" from="walkingtimer" to="." method="_on_walkingtimer_timeout"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://lq6mp437j0hh"]
+
+[ext_resource type="Script" path="res://GDScript/Egg.gd" id="1_0ehhf"]
+[ext_resource type="Texture2D" uid="uid://c3w1dl738hulf" path="res://Art/Extras/egg.png" id="2_flphg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_glqg1"]
+radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7hhc"]
+atlas = ExtResource("2_flphg")
+region = Rect2(0, 0, 10, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r2dlx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7hhc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Egg" type="Area2D"]
+script = ExtResource("1_0ehhf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_glqg1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r2dlx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 4.0
+offset_top = -24.0
+offset_right = 68.0
+offset_bottom = -1.0
+theme_override_font_sizes/font_size = 11
+text = "(e) Collect"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="interacted" from="." to="." method="_on_interacted"]

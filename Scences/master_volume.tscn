@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://euci23dg2488"]
+
+[ext_resource type="Script" path="res://GDScript/master_volume.gd" id="1_ubtfr"]
+
+[node name="MasterVolume" type="HSlider"]
+offset_top = 340.0
+offset_right = 372.0
+offset_bottom = 368.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_ubtfr")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

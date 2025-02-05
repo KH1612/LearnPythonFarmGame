@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://v0mg1tpr6ghh"]
+
+[ext_resource type="PackedScene" uid="uid://cebtcykabnpvu" path="res://Scences/fruit_tree.tscn" id="1_43qv6"]
+[ext_resource type="Texture2D" uid="uid://britjgljmlwsp" path="res://Art/LevelTiles/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_dam4p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r34bu"]
+atlas = ExtResource("2_dam4p")
+region = Rect2(768, 64, 18, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueoeb"]
+atlas = ExtResource("2_dam4p")
+region = Rect2(786, 80, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnb4q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r34bu")
+}],
+"loop": true,
+"name": &"end",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueoeb")
+}],
+"loop": true,
+"name": &"start",
+"speed": 5.0
+}]
+
+[node name="OrangeTree" instance=ExtResource("1_43qv6")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+y_sort_enabled = true
+position = Vector2(0, 11)
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(2, -3)
+sprite_frames = SubResource("SpriteFrames_nnb4q")
+animation = &"start"
+
+[node name="StaticBody2D" parent="." index="2"]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 1)
+
+[node name="Label" parent="." index="3"]
+y_sort_enabled = true

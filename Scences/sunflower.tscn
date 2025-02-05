@@ -1,0 +1,89 @@
+[gd_scene load_steps=17 format=3 uid="uid://1sscrem6owgm"]
+
+[ext_resource type="Script" path="res://GDScript/sunflower.gd" id="1_uk6lp"]
+[ext_resource type="Texture2D" uid="uid://d3blaa7ovua3c" path="res://Art/LevelTiles/Elements/Crops/sunflower_05.png" id="1_xy11e"]
+[ext_resource type="Texture2D" uid="uid://cktyni86h2kxo" path="res://Art/LevelTiles/Elements/Crops/soil_04.png" id="3_jaqjm"]
+[ext_resource type="Texture2D" uid="uid://d1l8tlw7fqqg5" path="res://Art/LevelTiles/Elements/Crops/sunflower_01.png" id="3_xvhan"]
+[ext_resource type="Texture2D" uid="uid://b1y804ors3w1n" path="res://Art/LevelTiles/Elements/Crops/sunflower_02.png" id="4_ym6l6"]
+[ext_resource type="Texture2D" uid="uid://bsrqrsl4fnuc4" path="res://Art/LevelTiles/Elements/Crops/sunflower_03.png" id="5_hasxi"]
+[ext_resource type="Texture2D" uid="uid://dv7kkn6su5oke" path="res://Art/LevelTiles/Elements/Crops/sunflower_04.png" id="6_w2ahm"]
+[ext_resource type="Texture2D" uid="uid://bvjewuffs8ub7" path="res://Art/LevelTiles/Elements/Crops/soil_01.png" id="7_bpjfx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xblk0"]
+atlas = ExtResource("1_xy11e")
+region = Rect2(0, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3e2u"]
+atlas = ExtResource("3_jaqjm")
+region = Rect2(0, 0, 16, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cnmb"]
+atlas = ExtResource("3_xvhan")
+region = Rect2(0, 0, 10, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkmsk"]
+atlas = ExtResource("4_ym6l6")
+region = Rect2(0, 0, 11, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7drl"]
+atlas = ExtResource("5_hasxi")
+region = Rect2(0, 0, 11, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ate7l"]
+atlas = ExtResource("6_w2ahm")
+region = Rect2(0, 0, 13, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbhn4"]
+atlas = ExtResource("7_bpjfx")
+region = Rect2(0, 0, 16, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2h7wa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xblk0")
+}],
+"loop": true,
+"name": &"complete",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3e2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cnmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkmsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7drl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xblk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ate7l")
+}],
+"loop": false,
+"name": &"grow",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbhn4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[node name="sunflower" type="Node2D"]
+script = ExtResource("1_uk6lp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2h7wa")
+animation = &"grow"
+frame = 5
+frame_progress = 1.0

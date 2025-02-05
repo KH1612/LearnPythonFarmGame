@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://b0xkj3fo5ppu1"]
+
+[ext_resource type="PackedScene" uid="uid://dioyojk203ncv" path="res://Scences/animal.tscn" id="1_4fuj7"]
+[ext_resource type="Texture2D" uid="uid://dvccbiyjkpp63" path="res://Art/LevelTiles/Elements/Animals/spr_deco_blinking_strip12.png" id="2_j466r"]
+[ext_resource type="Script" path="res://GDScript/eyes.gd" id="3_1thpa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51y4j"]
+atlas = ExtResource("2_j466r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxhjl"]
+atlas = ExtResource("2_j466r")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xynh"]
+atlas = ExtResource("2_j466r")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05dqh"]
+atlas = ExtResource("2_j466r")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3vfc"]
+atlas = ExtResource("2_j466r")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejg58"]
+atlas = ExtResource("2_j466r")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fld2e"]
+atlas = ExtResource("2_j466r")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iafd5"]
+atlas = ExtResource("2_j466r")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfmqc"]
+atlas = ExtResource("2_j466r")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyn33"]
+atlas = ExtResource("2_j466r")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k16s7"]
+atlas = ExtResource("2_j466r")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7kef"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51y4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxhjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xynh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05dqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3vfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejg58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fld2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iafd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfmqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyn33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k16s7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Eyes" instance=ExtResource("1_4fuj7")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_v7kef")
+frame_progress = 0.0
+script = ExtResource("3_1thpa")
+
+[connection signal="blink" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_blink"]

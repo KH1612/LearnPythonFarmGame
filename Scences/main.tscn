@@ -1,0 +1,155 @@
+[gd_scene load_steps=11 format=3 uid="uid://o3r2p7uwt4tc"]
+
+[ext_resource type="Script" path="res://GDScript/new_main.gd" id="1_sgapv"]
+[ext_resource type="Texture2D" uid="uid://3dplnmof14l0" path="res://Art/Menu/Parallax_Backgrounds_Plains/8.png" id="2_qqom3"]
+[ext_resource type="Texture2D" uid="uid://c3scba0br3xof" path="res://Art/Menu/Parallax_Backgrounds_Plains/7.png" id="3_ocb4q"]
+[ext_resource type="Texture2D" uid="uid://cpo66rxfdagi5" path="res://Art/Menu/Parallax_Backgrounds_Plains/6.png" id="4_s1th8"]
+[ext_resource type="Texture2D" uid="uid://dsewxe3wxfjb2" path="res://Art/Menu/Parallax_Backgrounds_Plains/5.png" id="5_k0trg"]
+[ext_resource type="Texture2D" uid="uid://ds4hlao11ai41" path="res://Art/Menu/Parallax_Backgrounds_Plains/4.png" id="6_iyejv"]
+[ext_resource type="Texture2D" uid="uid://bw1711ujv82y6" path="res://Art/Menu/Parallax_Backgrounds_Plains/3.png" id="7_gfrrc"]
+[ext_resource type="Texture2D" uid="uid://clg1ll2smtn0x" path="res://Art/Menu/Parallax_Backgrounds_Plains/2.png" id="8_akqaw"]
+[ext_resource type="Texture2D" uid="uid://by8rlca6tfofj" path="res://Art/Menu/Parallax_Backgrounds_Plains/1.png" id="9_g718c"]
+[ext_resource type="FontFile" uid="uid://bb1stx3kjdwu1" path="res://Art/ExitLevel/superstar_memesbruh03.ttf" id="10_jxdfn"]
+
+[node name="NewMain" type="Node2D"]
+script = ExtResource("1_sgapv")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(0, 1)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(577, 323)
+scale = Vector2(3, 2.99074)
+texture = ExtResource("2_qqom3")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(577, 321.5)
+scale = Vector2(3, 2.99537)
+texture = ExtResource("3_ocb4q")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(577, 321.5)
+scale = Vector2(3, 2.99537)
+texture = ExtResource("4_s1th8")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2.5, 2.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(577, 321.5)
+scale = Vector2(3, 2.99537)
+texture = ExtResource("5_k0trg")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(577, 321.5)
+scale = Vector2(3, 2.99537)
+texture = ExtResource("6_iyejv")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(3.5, 3.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2(577, 321.5)
+scale = Vector2(3, 2.99537)
+texture = ExtResource("7_gfrrc")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(4, 4)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+position = Vector2(577, 321.5)
+scale = Vector2(3, 2.99537)
+texture = ExtResource("8_akqaw")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -4)
+motion_scale = Vector2(4.5, 4.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+position = Vector2(577, 321.5)
+scale = Vector2(3, 2.99537)
+texture = ExtResource("9_g718c")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 526.0
+offset_top = 384.0
+offset_right = 712.0
+offset_bottom = 464.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(220, -220)
+theme_override_constants/margin_right = 10
+
+[node name="ButtonContain" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Start" type="Button" parent="Control/MarginContainer/ButtonContain"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_jxdfn")
+text = "Start"
+
+[node name="Options" type="Button" parent="Control/MarginContainer/ButtonContain"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_jxdfn")
+text = "Options"
+
+[node name="Exit" type="Button" parent="Control/MarginContainer/ButtonContain"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_jxdfn")
+text = "Exit"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 483.0
+offset_top = 194.0
+offset_right = 630.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.690196, 0, 1)
+theme_override_fonts/font = ExtResource("10_jxdfn")
+theme_override_font_sizes/font_size = 50
+text = "PyDew valley
+"
+
+[connection signal="pressed" from="Control/MarginContainer/ButtonContain/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/ButtonContain/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/ButtonContain/Exit" to="." method="_on_exit_pressed"]

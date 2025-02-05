@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://dm6ul147em05m"]
+
+[ext_resource type="Script" path="res://GDScript/level_stats.gd" id="1_0agvw"]
+[ext_resource type="Texture2D" uid="uid://britjgljmlwsp" path="res://Art/LevelTiles/Tileset/spr_tileset_sunnysideworld_16px.png" id="1_2yltj"]
+[ext_resource type="FontFile" uid="uid://bb1stx3kjdwu1" path="res://Art/ExitLevel/superstar_memesbruh03.ttf" id="2_ski4b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3fyv"]
+atlas = ExtResource("1_2yltj")
+region = Rect2(640, 768, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_avvqo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3fyv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfug2"]
+atlas = ExtResource("1_2yltj")
+region = Rect2(688, 768, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hyie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfug2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LevelStats" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1099.0
+offset_bottom = -588.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0agvw")
+
+[node name="TimeIcon" type="AnimatedSprite2D" parent="."]
+position = Vector2(15, 16)
+sprite_frames = SubResource("SpriteFrames_avvqo")
+
+[node name="RunsIcon" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 33)
+sprite_frames = SubResource("SpriteFrames_5hyie")
+
+[node name="Runs" type="Label" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 23.0
+offset_right = 70.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("2_ski4b")
+theme_override_font_sizes/font_size = 20
+text = "?"
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 5.0
+offset_right = 70.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("2_ski4b")
+theme_override_font_sizes/font_size = 20
+text = "?"

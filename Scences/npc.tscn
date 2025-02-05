@@ -1,0 +1,210 @@
+[gd_scene load_steps=28 format=3 uid="uid://c0yu0i42a054e"]
+
+[ext_resource type="Script" path="res://GDScript/npc.gd" id="1_ty0ju"]
+[ext_resource type="Texture2D" uid="uid://oehp0rfgh5di" path="res://Art/NPC/IDLE/base_idle_strip9.png" id="2_h7eko"]
+[ext_resource type="Texture2D" uid="uid://bivany5clo7ej" path="res://Art/NPC/IDLE/curlyhair_idle_strip9.png" id="3_axska"]
+[ext_resource type="Texture2D" uid="uid://br15eyu18wnnr" path="res://Art/NPC/WATERING/base_watering_strip5.png" id="3_ku2su"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h66ub"]
+radius = 31.5753
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u33ls"]
+atlas = ExtResource("2_h7eko")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp388"]
+atlas = ExtResource("2_h7eko")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a4x5"]
+atlas = ExtResource("2_h7eko")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01it1"]
+atlas = ExtResource("2_h7eko")
+region = Rect2(480, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck6cq"]
+atlas = ExtResource("2_h7eko")
+region = Rect2(576, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lvp1"]
+atlas = ExtResource("2_h7eko")
+region = Rect2(672, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8scl3"]
+atlas = ExtResource("2_h7eko")
+region = Rect2(768, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hujxv"]
+atlas = ExtResource("3_ku2su")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxa5g"]
+atlas = ExtResource("3_ku2su")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0ps4"]
+atlas = ExtResource("3_ku2su")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q77ga"]
+atlas = ExtResource("3_ku2su")
+region = Rect2(288, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upw2o"]
+atlas = ExtResource("3_ku2su")
+region = Rect2(384, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nmgv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u33ls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tp388")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a4x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01it1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck6cq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lvp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8scl3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hujxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxa5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0ps4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q77ga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upw2o")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urjqd"]
+atlas = ExtResource("3_axska")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4gsh"]
+atlas = ExtResource("3_axska")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwain"]
+atlas = ExtResource("3_axska")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogjo5"]
+atlas = ExtResource("3_axska")
+region = Rect2(480, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuogi"]
+atlas = ExtResource("3_axska")
+region = Rect2(576, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hg1x"]
+atlas = ExtResource("3_axska")
+region = Rect2(672, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcbjf"]
+atlas = ExtResource("3_axska")
+region = Rect2(768, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpopl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urjqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4gsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwain")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogjo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuogi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hg1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcbjf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlii1"]
+size = Vector2(35, 18.5)
+
+[node name="NPC" type="Area2D"]
+position = Vector2(0, -15)
+script = ExtResource("1_ty0ju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 100
+y_sort_enabled = true
+position = Vector2(4, 19)
+shape = SubResource("CircleShape2D_h66ub")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -8)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1nmgv")
+animation = &"new_animation"
+frame = 4
+frame_progress = 0.695401
+
+[node name="Label" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -65.0
+offset_right = 42.0
+offset_bottom = -42.0
+text = "[e] talk"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -12)
+scale = Vector2(2, 1.98438)
+sprite_frames = SubResource("SpriteFrames_vpopl")
+animation = &"idle"
+frame = 3
+frame_progress = 0.993812
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3, -1.25)
+shape = SubResource("RectangleShape2D_rlii1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="interacted" from="." to="." method="_on_interacted"]

@@ -1,0 +1,137 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7q8mu4nopwt0"]
+
+[ext_resource type="Script" path="res://GDScript/level_select.gd" id="1_eliin"]
+[ext_resource type="Texture2D" uid="uid://dfxiycotvjmkk" path="res://Art/LevelSelect/LevelSelect.jpg" id="2_ct1ha"]
+[ext_resource type="FontFile" uid="uid://bb1stx3kjdwu1" path="res://Art/ExitLevel/superstar_memesbruh03.ttf" id="3_3oj0f"]
+[ext_resource type="PackedScene" uid="uid://dm6ul147em05m" path="res://Scences/level_stats.tscn" id="4_r2tfx"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eliin")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ct1ha")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -202.0
+offset_right = 145.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(220, -220)
+
+[node name="ButtonContain" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="level_5" type="Button" parent="MarginContainer/ButtonContain"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3oj0f")
+text = "Level 5
+"
+
+[node name="level_4" type="Button" parent="MarginContainer/ButtonContain"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3oj0f")
+text = "Level 4"
+
+[node name="level_3" type="Button" parent="MarginContainer/ButtonContain"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3oj0f")
+text = "Level 3
+"
+
+[node name="level_2" type="Button" parent="MarginContainer/ButtonContain"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3oj0f")
+text = "Level 2
+"
+
+[node name="level_1" type="Button" parent="MarginContainer/ButtonContain"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3oj0f")
+text = "Level 1"
+
+[node name="level_0" type="Button" parent="MarginContainer/ButtonContain"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3oj0f")
+text = "Level 0"
+
+[node name="LevelStats5" parent="." instance=ExtResource("4_r2tfx")]
+layout_mode = 1
+offset_left = 630.0
+offset_top = 263.0
+offset_right = -469.0
+offset_bottom = -325.0
+
+[node name="LevelStats4" parent="." instance=ExtResource("4_r2tfx")]
+layout_mode = 1
+offset_left = 630.0
+offset_top = 305.0
+offset_right = -469.0
+offset_bottom = -283.0
+
+[node name="LevelStats3" parent="." instance=ExtResource("4_r2tfx")]
+layout_mode = 1
+offset_left = 630.0
+offset_top = 347.0
+offset_right = -469.0
+offset_bottom = -241.0
+
+[node name="LevelStats2" parent="." instance=ExtResource("4_r2tfx")]
+layout_mode = 1
+offset_left = 630.0
+offset_top = 388.0
+offset_right = -469.0
+offset_bottom = -200.0
+
+[node name="LevelStats1" parent="." instance=ExtResource("4_r2tfx")]
+layout_mode = 1
+offset_left = 630.0
+offset_top = 430.0
+offset_right = -469.0
+offset_bottom = -158.0
+
+[node name="LevelStats0" parent="." instance=ExtResource("4_r2tfx")]
+layout_mode = 1
+offset_left = 630.0
+offset_top = 472.0
+offset_right = -469.0
+offset_bottom = -116.0
+
+[node name="MainMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1043.0
+offset_top = 8.0
+offset_right = 1139.0
+offset_bottom = 39.0
+text = "Main Menu"
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="pressed" from="MarginContainer/ButtonContain/level_5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContain/level_4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContain/level_3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContain/level_2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContain/level_1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContain/level_0" to="." method="_on_level_0_pressed"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

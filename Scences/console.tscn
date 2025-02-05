@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://iereg3hy7mnr"]
+
+[ext_resource type="Script" path="res://GDScript/console.gd" id="1_y3vrv"]
+
+[node name="Console" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y3vrv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -503.0
+offset_top = -289.5
+offset_right = 503.0
+offset_bottom = 289.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.349799, 0.373837, 0.456759, 1)
+
+[node name="PyScript" type="CodeEdit" parent="ColorRect"]
+layout_mode = 0
+offset_right = 545.0
+offset_bottom = 578.0
+theme_override_colors/font_color = Color(0.569924, 0.355193, 0.61374, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 0
+offset_left = 856.0
+offset_top = -1.0
+offset_right = 1005.0
+offset_bottom = 39.0
+
+[node name="Run" type="Button" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "Run"
+
+[node name="Clear" type="Button" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "Clear"
+
+[node name="Close" type="Button" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="Output" type="TextEdit" parent="ColorRect"]
+layout_mode = 2
+offset_left = 550.0
+offset_top = 45.0
+offset_right = 1007.0
+offset_bottom = 578.0
+text = "Output:
+"
+editable = false
+
+[connection signal="ready" from="ColorRect/PyScript" to="." method="_on_py_script_ready"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/Run" to="." method="_on_run_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/Close" to="." method="_on_close_pressed"]
